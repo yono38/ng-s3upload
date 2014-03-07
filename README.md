@@ -1,6 +1,23 @@
 ng-s3upload - Upload to S3 using AngularJS
 ===========
 
+## Yono's Notes
+This is my hacked together version of this project because I'm still learning angular and can't spend any more time figuring out how to bind properly.
+My Changes:
+* Removed Progress Bar
+* Removed Stored File Link on success
+* Added an option in the s3-upload-options "results" that takes a string and sets the filename of the uploaded file on s3 after upload success.
+** For example, if you have the following options array:
+  $scope.s3Options = {
+      bucket: 'somePics',
+      getOptionsUri: '/api/s3options',
+      folder: 'picsFolder',
+      result: 'pictureSource'
+  };
+It would bind the filename to $scope.pictureSource.
+
+
+## Summary
 An AngularJS directive that allows you to simply upload files directly to AWS S3.
 
 ## Setup 

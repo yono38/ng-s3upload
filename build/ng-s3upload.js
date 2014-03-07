@@ -194,6 +194,7 @@ angular.module('ngS3upload.directives', []).
                     ).then(function () {
                       ngModel.$setViewValue(s3Uri + key);
                       scope.filename = ngModel.$viewValue;
+                      scope.$parent[opts.result] = ngModel.$viewValue;
                       ngModel.$setValidity('uploading', true);
                       ngModel.$setValidity('succeeded', true);
                     }, function () {
@@ -218,10 +219,6 @@ angular.module('ngS3upload.directives', []).
       },
       template: '<div class="upload-wrap">' +
         '<button class="btn btn-primary" type="button"><span ng-if="!filename">Choose file</span><span ng-if="filename">Replace file</span></button>' +
-        '<a ng-href="{{ filename  }}" target="_blank" class="" ng-if="filename" > Stored file </a>' +
-        '<div class="progress progress-striped" ng-class="{active: uploading}" ng-show="attempt" style="margin-top: 10px">' +
-        '<div class="bar" style="width: {{ progress }}%;" ng-class="barClass()"></div>' +
-        '</div>' +
         '<input type="file" style="display: none"/>' +
         '</div>'
     };
