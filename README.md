@@ -6,15 +6,26 @@ This is my hacked together version of this project because I'm still learning an
 My Changes:
 * Removed Progress Bar
 * Removed Stored File Link on success
-* Added an option in the s3-upload-options "results" that takes a string and sets the filename of the uploaded file on s3 after upload success.
-** For example, if you have the following options array:
+* Added an option in the s3-upload-options "result" that takes a string and sets the filename of the uploaded file on s3 after upload success.
+
+For example, if you have the following html:
+  ```html 
+  <div s3-upload bucket="s3Options.bucket" ng-model="picture"
+		   s3-upload-options="s3Options"></div>
+	
+```
+
+And corresponding options array in your controller:
+	
+  ```javascript
   $scope.s3Options = {
       bucket: 'somePics',
       getOptionsUri: '/api/s3options',
       folder: 'picsFolder',
       result: 'pictureSource'
   };
-It would bind the filename to $scope.pictureSource.
+  ```
+It would bind the filename to **$scope.pictureSource**.
 
 
 ## Summary
